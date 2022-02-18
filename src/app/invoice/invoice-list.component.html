@@ -28,7 +28,8 @@
                             <div class="table100-body js-pscroll">
                                 <table>
                                     <tbody>
-                                        <tr class="row100 body" *ngFor="let invoice of listInvoices;index as itemIndex">
+                                        <tr class="row100 body"
+                                            *ngFor="let invoice of listInvoices | paginate: { itemsPerPage: 3, currentPage: defaultPage } ; index as itemIndex ">
                                             <td class="cell100 column1">
                                                 {{invoice.InvoiceNumber}}
                                             </td>
@@ -47,6 +48,12 @@
                                                         class="fas fa-edit"></i></button>&nbsp;
                                                 <button (click)="deleteInvoice(itemIndex)" class="btn btn-danger"><i
                                                         class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center" colspan="4">
+                                                <pagination-controls (pageChange)="defaultPage = $event">
+                                                </pagination-controls>
                                             </td>
                                         </tr>
                                     </tbody>

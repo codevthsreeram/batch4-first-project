@@ -10,6 +10,7 @@ import { InvoiceService } from "./invoice.service";
 })
 
 export class InvoiceListComponent implements OnInit {
+    defaultPage: number = 1;
     editIndex: number;
     modalTitle: string;
     alertMessage: string;
